@@ -3,18 +3,32 @@ import re
 bias_words = [
     "women",
     "men",
+    "male",
+    "female",
+    "emotional",
+    "leadership",
+    "leader",
     "muslim",
     "hindu",
     "christian",
     "black",
     "white",
-    "rich",
     "poor",
-    "disabled",
-    "old",
-    "young"
+    "rich"
 ]
 
+stereotype_words = [
+    "too emotional",
+    "cannot",
+    "can't",
+    "always",
+    "never",
+    "inferior",
+    "superior",
+    "weak",
+    "lazy",
+    "violent"
+]
 negative_words = [
     "lazy",
     "stupid",
@@ -41,10 +55,15 @@ def detect_bias(text):
             detected.append(word)
             score += 10
 
+    for word in stereotype_words:
+        if word in words:
+            detected.append(word)
+            score += 20
+
     for word in negative_words:
         if word in words:
             detected.append(word)
-            score += 15
+            score += 25
 
     score = min(score, 100)
 

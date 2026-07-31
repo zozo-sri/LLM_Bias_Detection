@@ -208,22 +208,4 @@ Example fields:
 ## 👩‍💻 Author
 
 **Mahi Srivastava**
-
 B.Tech CSE (AI & ML)
-
-Interested in Artificial Intelligence, Machine Learning, Generative AI, NLP, and Space Technology.
-
-GitHub:
-https://github.com/zozo-sri
-
----
-
-## ⭐ If you found this project useful
-
-Give this repository a ⭐ on GitHub.
-
----
-
-## 📜 License
-
-This project is developed for educational and learning purposes.

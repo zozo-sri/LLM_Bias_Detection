@@ -1,11 +1,13 @@
 import re
 
 toxic_words = [
+    "weak",
     "idiot",
     "stupid",
     "hate",
     "kill",
-    "terrorist",
+    "female",
+    "lower",
     "ugly",
     "fool",
     "moron",
@@ -18,25 +20,25 @@ def detect_toxicity(text):
 
     words = re.findall(r"\b\w+\b", text)
 
-    score = 0
+    scoring = 0
     detected = []
 
     for word in toxic_words:
         if word in words:
             detected.append(word)
-            score += 20
+            scoring += 20
 
-    score = min(score, 100)
+    scoring = min(scoring, 100)
 
-    if score >= 60:
+    if scoring >= 60:
         verdict = "Highly Toxic"
-    elif score >= 30:
+    elif scoring >= 30:
         verdict = "Moderately Toxic"
     else:
         verdict = "Low Toxicity"
 
     return {
-        "toxicity_score": score,
+        "toxicity_score": scoring,
         "detected_words": detected,
         "verdict": verdict
     }

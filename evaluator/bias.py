@@ -1,3 +1,4 @@
+#I am importing re module to use regex for word extraction. 
 import re
 
 bias_words = [
@@ -29,6 +30,7 @@ stereotype_words = [
     "lazy",
     "violent"
 ]
+
 negative_words = [
     "lazy",
     "stupid",
@@ -44,38 +46,39 @@ negative_words = [
 def detect_bias(text):
     text = text.lower()
 
-    # Split into complete words only
+    #Applying this regex pattern so that we can extract words from the text and ignore punctuation and special characters
     words = re.findall(r"\b\w+\b", text)
 
-    score = 0
+    scoring = 0
     detected = []
 
     for word in bias_words:
         if word in words:
             detected.append(word)
-            score += 10
+            scoring += 10
 
     for word in stereotype_words:
         if word in words:
             detected.append(word)
-            score += 20
+            scoring += 20
 
     for word in negative_words:
         if word in words:
             detected.append(word)
-            score += 25
+            scoring += 25
 
-    score = min(score, 100)
+    scoring = min(scoring, 100)
 
-    if score >= 60:
+    #Applying the scoring to determine the verdict
+    if scoring >= 60:
         verdict = "High Bias"
-    elif score >= 30:
+    elif scoring >= 30:
         verdict = "Moderate Bias"
     else:
         verdict = "Low Bias"
 
     return {
-        "bias_score": score,
+        "bias_score": scoring,
         "keywords": detected,
         "verdict": verdict
     }

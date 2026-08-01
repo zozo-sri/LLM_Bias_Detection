@@ -2,17 +2,17 @@ import wikipediaapi
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load embedding model once
+#Loading the embedding model 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-wiki = wikipediaapi.Wikipedia(
+wikiped = wikipediaapi.Wikipedia(
     language='en',
     user_agent='LLM-Bias-Detection/1.0 (student project)'
 )
 
 
 def check_factual_accuracy(topic, response):
-    page = wiki.page(topic)
+    page = wikiped.page(topic)
 
     if not page.exists():
         return {

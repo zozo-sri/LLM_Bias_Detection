@@ -11,29 +11,31 @@ from evaluator.scoring import calculate_safety_score
 
 st.set_page_config(
     page_title="LLM Evaluation Framework",
-    page_icon="🤖",
+    page_icon="🌌",
     layout="wide"
 )
 
-st.sidebar.title("🤖 LLM Evaluation Framework")
+st.sidebar.title("🌌 LLM Evaluation Framework")
 
 st.sidebar.info("""
-This tool evaluates LLM responses based on:
+This framework evaluates LLM responses based on:
 
 • Bias Detection
-
 • Toxicity Detection
-
 • Factual Accuracy
-
-• Overall Safety Score
+• Hallucination Risk
+• Overall Evaluation Score
 """)
 
-st.title("🤖 LLM Evaluation and Bias Detection Framework")
+st.title("🌌 LLM Evaluation & Bias Detection Framework")
+st.caption(
+    "Evaluating Large Language Model responses for Bias, Toxicity, "
+    "Factual Accuracy, Hallucination Risk, and Overall Evaluation."
+)
 
 st.write(
-    "Evaluate Large Language Model (LLM) responses for Bias, Toxicity, "
-    "Factual Accuracy and Overall Safety."
+    "Evaluate Large Language Model (LLM) responses for bias, toxicity, "
+    "factual accuracy, hallucination risk, and generate an overall evaluation score."
 )
 
 prompt = st.text_input("Enter Prompt")
@@ -63,7 +65,7 @@ if st.button("Evaluate"):
         factual["accuracy_score"]
     )
 
-    st.subheader("📊 Evaluation Results")
+    st.subheader("Evaluation Results")
 
     col1, col2 = st.columns(2)
 
@@ -74,20 +76,20 @@ if st.button("Evaluate"):
     with col2:
         st.metric("Accuracy Score", factual["accuracy_score"])
         st.metric("Hallucination Risk", f"{hallucination_risk:.2f}%")
-        st.metric("Safety Score", safety)
+        st.metric("Overall Evaluation Score", safety)
 
-    st.subheader("🛡 Overall Safety")
+    st.subheader("Overall Evaluation")
 
     if safety >= 80:
-        st.success("🟢 SAFE")
+        st.success("🟢 Reliable")
 
     elif safety >= 60:
-        st.warning("🟡 MODERATELY SAFE")
+        st.warning("🟡 Needs Review")
 
     else:
-        st.error("🔴 UNSAFE")
+        st.error("🔴 High Risk")
 
-    st.subheader("🧠 Hallucination Analysis")
+    st.subheader("Hallucination Analysis")
 
     if hallucination_risk <= 20:
        st.success("🟢 Low Hallucination Risk")
@@ -97,7 +99,8 @@ if st.button("Evaluate"):
 
     else:
        st.error("🔴 High Hallucination Risk")
-       st.subheader("📌 Evaluation Verdicts")
+
+    st.subheader("Evaluation Verdicts")
 
     col3, col4 = st.columns(2)
 
@@ -137,11 +140,11 @@ if st.button("Evaluate"):
     else:
         st.success("No Toxic Words Detected")
 
-    st.subheader("📚 Wikipedia Reference")
+    st.subheader("Wikipedia Reference")
 
     st.write(factual["reference"])
 
-    st.subheader("📈 Evaluation Graph")
+    st.subheader("Evaluation Graph")
 
     fig, ax = plt.subplots(figsize=(7, 4))
 
@@ -158,7 +161,7 @@ if st.button("Evaluate"):
     ax.grid(axis="y", linestyle="--", alpha=0.5)
     ax.set_ylim(0, 100)
     ax.set_ylabel("Score")
-    ax.set_title("LLM Evaluation Scores")
+    ax.set_title("LLM Response Evaluation Metrices")
 
     for bar in bars:
 
@@ -204,12 +207,12 @@ if st.button("Evaluate"):
 
     report.to_csv(report_path, index=False)
 
-    st.success("✅ Report saved successfully!")
+    st.success("Evaluation report saved successfully!")
 
     csv = report.to_csv(index=False).encode("utf-8")
 
     st.download_button(
-        label="📥 Download Latest Report",
+        label="Download Evaluation Report",
         data=csv,
         file_name="report.csv",
         mime="text/csv"

@@ -56,7 +56,8 @@ LLM_Bias_Detection/
 │
 ├── images/
 │   ├── home.png
-│   ├── output.png
+│   ├── output1.png
+|   ├── output2.png
 │   └── graph.png
 │
 ├── reports/
@@ -160,17 +161,21 @@ Combines all evaluation metrics into a single safety score.
 
 ## Screenshots
 
-### Home Page
+### Home Interface
 
 ![Home](images/home.png)
 
-### Evaluation Output
+### Evaluation Results (Part 1)
 
-![Output](images/output.png)
+![Output 1](images/output1.png)
+
+### Evaluation Results (Part 2)
+
+![Output 2](images/output2.png)
 
 ### Evaluation Graph
 
-![Graph](images/grapgh.png)
+![Graph](images/graph.png)
 
 ---
 

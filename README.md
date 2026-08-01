@@ -1,16 +1,16 @@
-# 🤖 LLM Evaluation and Bias Detection Framework
+# 🌌 LLM Evaluation and Bias Detection Framework
 
 A Streamlit-based web application for evaluating Large Language Model (LLM) responses based on **Bias**, **Toxicity**, **Factual Accuracy**, **Hallucination Risk**, and **Overall Safety Score**.
 
 ---
 
-## 📌 Overview
+## Overview
 
 Large Language Models can generate responses that may be biased, toxic, factually incorrect, or hallucinated. This project provides an easy-to-use evaluation framework that analyzes an LLM response and generates useful metrics along with visualizations and downloadable reports.
 
 ---
 
-## ✨ Features
+## Features
 
 - ✅ Bias Detection
 - ✅ Toxicity Detection
@@ -25,7 +25,7 @@ Large Language Models can generate responses that may be biased, toxic, factuall
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -38,7 +38,7 @@ Large Language Models can generate responses that may be biased, toxic, factuall
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 LLM_Bias_Detection/
@@ -121,7 +121,7 @@ streamlit run app.py
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 1. Enter an input prompt.
 2. Paste the LLM-generated response.
@@ -139,7 +139,7 @@ streamlit run app.py
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 ### Bias Detection
 Identifies biased words and estimates the level of bias in the response.
@@ -158,7 +158,7 @@ Combines all evaluation metrics into a single safety score.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Home Page
 
@@ -174,7 +174,7 @@ Combines all evaluation metrics into a single safety score.
 
 ---
 
-## 📄 Sample Report
+## Sample Report
 
 The application automatically generates reports in CSV format.
 
@@ -193,7 +193,7 @@ Example fields:
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - Gemini API Integration
 - OpenAI API Support
@@ -205,7 +205,7 @@ Example fields:
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Mahi Srivastava**
 B.Tech CSE (AI & ML)
